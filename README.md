@@ -1,1 +1,1 @@
-# smartshopping-app
+# Smartshopping-app
