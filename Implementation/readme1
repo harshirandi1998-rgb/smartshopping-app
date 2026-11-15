@@ -1,0 +1,7 @@
+# Implementation
+
+This folder contains the PostgreSQL database schema and MVC-structured application logic for the **Smart Shopping App**.
+
+## Structure
+- `database/schema.sql` — PostgreSQL tables, constraints, and indexes.
+- `src/models/cart_engine.py` — Core business logic for subtotal calculation, promotional discounts, 90%/100% budget alerts, 50g weight validation, and SHA-256 QR receipt signing.
