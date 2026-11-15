@@ -1,0 +1,41 @@
+import hashlib
+from datetime import datetime, timezone
+
+
+def calculate_cart_total(items: list[dict], discount_rate: float = 0.0, tax_rate: float = 0.0) -> dict:
+    """REQ-SF4-1: Real-time calculation of subtotal, promotional discounts, taxes, and final total."""
+    subtotal = sum(item["price"] * item["qty"] for item in items)
+    discount_amount = round(subtotal * discount_rate, 2)
+    taxable_amount = subtotal - discount_amount
+    tax_amount = round(taxable_amount * tax_rate, 2)
+    total = round(taxable_amount + tax_amount, 2)
+    return {
+        "subtotal": round(subtotal, 2),
+        "discount_amount": discount_amount,
+        "tax_amount": tax_amount,
+        "total": total,
+    }
+
+
+def check_budget_status(total: float, budget: float) -> str:
+    """REQ-SF4-3: Trigger budget threshold alert at 90% and 100%."""
+    if budget <= 0:
+        return "INVALID_BUDGET"
+    ratio = total / budget
+    if ratio >= 1.0:
+        return "EXCEEDED_100_WARNING"
+    if ratio >= 0.9:
+        return "THRESHOLD_90_WARNING"
+    return "WITHIN_BUDGET"
+
+
+def check_weight_discrepancy(expected_grams: float, actual_grams: float, tolerance_grams: float = 50.0) -> bool:
+    """REQ-SF3-3: Detect smart cart weight discrepancy greater than 50g."""
+    return abs(actual_grams - expected_grams) > tolerance_grams
+
+
+def generate_qr_receipt_signature(order_id: str, user_id: int, total_paid: float) -> str:
+    """REQ-SF6-2: Generate SHA-256 cryptographic signature for digital QR receipt."""
+    timestamp = datetime.now(timezone.utc).isoformat()
+    payload = f"{order_id}|{user_id}|{total_paid:.2f}|{timestamp}"
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
