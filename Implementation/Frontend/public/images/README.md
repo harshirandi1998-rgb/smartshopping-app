@@ -7,4 +7,4 @@ Examples:
 - Product images
 - Category images
 - Store images
-- Promotional banners
+
