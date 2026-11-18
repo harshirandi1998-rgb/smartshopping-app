@@ -1,0 +1,40 @@
+# RACI Responsibility Assignment Matrix
+
+**Project:** Smart Shopping App  
+**Organization:** Dongshin University IT Team E  
+
+## 1. RACI Role Definitions
+* **R — Responsible:** Executes the task or creates the deliverable.
+* **A — Accountable:** Single owner with final review and sign-off authority (only one **A** per row).
+* **C — Consulted:** Provides technical input and review prior to completion.
+* **I — Informed:** Kept updated on task completion and milestone progress.
+
+---
+
+## 2. Team Roles Overview
+| Team Member | Designated Role | Primary Focus Areas |
+| :--- | :--- | :--- |
+| **Harshika Randini** | Lead Engineer & Systems Analyst | SRS v1.0, Requirements Traceability Matrix, PR Verification & Final Sign-off |
+| **Kiran Bhattarai** | GitHub Maintainer & Backend Developer | Repository Structure, Backend REST API, MVC Logic, Class & Sequence Diagrams |
+| **Dinesh Bist** | Database & Security Engineer | ER Diagram, PostgreSQL Schema, Auth Hashing, TLS 1.3 & QR Signing |
+| **Lokendra Awasthi** | UI/UX & QA Testing Lead | SRS Contributions, Use Case/Context Diagrams, UI Mockups, Chapter 8 QA Testing |
+
+---
+
+## 3. Project RACI Chart
+
+| SDLC Phase | Deliverable / Task | Harshika Randini | Kiran Bhattarai | Dinesh Bist | Lokendra Awasthi |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| **Planning** | GitHub Repository Structure & PR Workflow | **A** | **R** | **I** | **I** |
+| **Planning** | Scrum Sprint Backlog & 6-Week Schedule | **A / R** | **C** | **C** | **C** |
+| **Analysis** | Software Requirements Specification (SRS v1.0) | **A / R** | **C** | **C** | **R** |
+| **Analysis** | Requirements Traceability Matrix (`REQ-SF1-1`–`NFR`) | **A / R** | **C** | **C** | **C** |
+| **Analysis** | Use Case Descriptions & Context Diagram | **A** | **C** | **I** | **R** |
+| **Design** | System Architecture & TLS 1.3 Security Model | **A** | **R** | **R** | **I** |
+| **Design** | ER Diagram & PostgreSQL Schema (`schema.sql`) | **A** | **C** | **R** | **I** |
+| **Design** | Class & Sequence Diagrams | **A** | **R** | **C** | **C** |
+| **Design** | Mobile UI Mockups (Cart, Budget Alert, QR Receipt) | **A** | **I** | **I** | **R** |
+| **Implementation** | Backend REST API & MVC Cart/Budget Engine | **A** | **R** | **C** | **I** |
+| **Implementation** | Password Hashing (`bcrypt`/`SHA-256`) & QR Signature | **A** | **C** | **R** | **I** |
+| **Testing (Ch. 8)** | Test Plan, Manual Test Cases (`TC-01`–`TC-09`) & QA | **A** | **C** | **C** | **R** |
+| **Testing (Ch. 8)** | Automated Unit & Boundary Tests (`pytest`) | **A** | **R** | **C** | **R** |
