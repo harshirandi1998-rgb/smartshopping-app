@@ -1,0 +1,30 @@
+# RACI Responsibility Assignment Matrix
+
+**Project:** Smart Shopping App  
+**Organization:** Dongshin University IT Team E  
+
+## Role Definitions
+* **R — Responsible:** Team member(s) executing the task or creating the deliverable.
+* **A — Accountable:** The single owner with final sign-off authority for the task.
+* **C — Consulted:** Subject-matter contributors providing input and review before completion.
+* **I — Informed:** Team members kept updated on progress and final outcomes.
+
+---
+
+## Project RACI Matrix
+
+| Phase | Deliverable / Task | Harshika Randini<br>*(Lead Engineer & Systems Analyst)* | Kiran Bhattarai<br>*(GitHub Maintainer & Backend Dev)* | Dinesh Bist<br>*(Database & Security Engineer)* | Lokendra Awasthi<br>*(UI/UX & QA Testing Lead)* |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| **Planning** | GitHub Repository Setup & PR Verification | **A** | **R** | **I** | **I** |
+| **Planning** | Scrum Sprint Backlog & 6-Week Schedule | **A / R** | **C** | **C** | **C** |
+| **Analysis** | Software Requirements Specification (SRS v1.0) | **A / R** | **C** | **C** | **R** |
+| **Analysis** | Requirements Traceability Matrix (`REQ-SF1-1`–`NFR`) | **A / R** | **C** | **C** | **C** |
+| **Analysis** | Use Case Descriptions & Context Diagram | **A** | **C** | **I** | **R** |
+| **Design** | System Architecture & TLS 1.3 Security Design | **A** | **R** | **R** | **I** |
+| **Design** | ER Diagram & PostgreSQL Relational Schema | **A** | **C** | **R** | **I** |
+| **Design** | Class & Sequence Diagrams | **A** | **R** | **C** | **C** |
+| **Design** | Mobile UI Mockups (Cart, Budget Alert, QR Receipt) | **A** | **I** | **I** | **R** |
+| **Implementation** | Backend REST API & MVC Cart/Budget Engine | **A** | **R** | **C** | **I** |
+| **Implementation** | Auth Hashing (`bcrypt`/`SHA-256`) & QR Signing | **A** | **C** | **R** | **I** |
+| **Testing (Ch. 8)** | Test Plan, Test Cases (`TC-01`–`TC-09`) & QA Execution | **A** | **C** | **C** | **R** |
+| **Testing (Ch. 8)** | Automated Unit & Boundary Tests (`pytest`) | **A** | **R** | **C** | **R** |
