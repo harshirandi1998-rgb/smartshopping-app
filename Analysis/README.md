@@ -9,6 +9,8 @@ for the Smart Shopping App.
 - Functional Requirements
 - Non-Functional Requirements
 - System Analysis
+- software requirements specification
+- traceability
 
 ## Purpose
 To understand what the system
