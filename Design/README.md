@@ -4,11 +4,13 @@ This folder contains design documents
 for the Smart Shopping App.
 
 ## Main Activities
-- System Architecture
+- class diagrams
+- context diagram
 - Database Design
-- User Interface Design
-- Use Case Diagrams
 - Sequence Diagrams
+- System Architecture
+- Use Case Diagrams
+- User Interface Design
 
 ## Purpose
 To plan how the application
