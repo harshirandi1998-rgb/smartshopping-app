@@ -1,0 +1,25 @@
+# Sprint Backlog & Task Breakdown
+
+**Project:** Smart Shopping App  
+**Lead Engineer:** Harshika Randini  
+**Framework:** Scrum / Agile Process  
+
+---
+
+## Sprint 1: Core Foundation & Catalog (Weeks 1–2)
+- [x] Set up GitHub Repository structure and standard project layout.
+- [x] Draft IEEE Std 830-1998 Software Requirements Specification (SRS v1.0).
+- [x] Design PostgreSQL database schema for `User`, `Product`, and `SmartCart` (`Implementation/database/schema.sql`).
+- [ ] Implement User Registration & Authentication API endpoints (`REQ-SF1-1`, `REQ-SF1-2`).
+
+## Sprint 2: Smart Cart & Real-Time Budgeting (Weeks 3–4)
+- [x] Build dynamic subtotal calculation module with promotional discount logic (`REQ-SF4-1`).
+- [x] Integrate load cell weight validation algorithm with 50g error tolerance (`REQ-SF3-3`).
+- [ ] Develop barcode scanning handler for mobile application UI (`REQ-SF2-1`).
+- [ ] Implement visual budget progress indicator modal on client UI (`REQ-SF4-3`).
+
+## Sprint 3: Checkout, Payments & Refactoring (Weeks 5–6)
+- [x] Refactor codebase structure for maintainability using MVC pattern (`Implementation/src/`).
+- [x] Create Chapter 8 Test Cases and automated unit test suite (`Testing/`).
+- [ ] Integrate payment gateway REST API (Stripe / KakaoPay).
+- [ ] Implement cryptographic QR code digital receipt generator (`REQ-SF6-2`).

@@ -1,0 +1,29 @@
+# UI Mockups — Smart Shopping App
+
+## Mobile Interface Wireframes
+
+| 1. Live Smart Cart (`REQ-SF3-3`, `REQ-SF4-1`) | 2. Budget Warning (`REQ-SF4-3`) | 3. Digital QR Receipt (`REQ-SF6-2`) |
+| :---: | :---: | :---: |
+| Real-time subtotal, item quantity controls, and 50g load-cell weight validation. | Modal alert triggered at 90% and 100% budget thresholds with smart savings suggestions. | Cryptographically signed QR receipt with discount breakdown and order history. |
+
+```text
++-----------------------------------+   +-----------------------------------+   +-----------------------------------+
+|  [ < ]  Smart Cart (Live)         |   |  [ ! ]  BUDGET WARNING (95%)      |   |  [ ✓ ]  DIGITAL QR RECEIPT        |
++-----------------------------------+   +-----------------------------------+   +-----------------------------------+
+|  Budget: ₩50,000 | Spent: ₩47,500 |   |                                   |   |  Dongshin Smart Mart              |
+|  [███████████████████░] 95%       |   |   You have reached 95% of your    |   |  Order ID: #SSA-20261115-089      |
+|  ⚠ Approaching Budget Limit!      |   |   ₩50,000 shopping budget!        |   |  Date: 2026-11-15 22:55 KST       |
++-----------------------------------+   |                                   |   +-----------------------------------+
+|  1. Organic Milk (1L)     ₩3,200  |   |   Current Total:  ₩47,500         |   |         ▄▄▄▄▄▄▄ ▄▄ ▄▄▄▄▄▄▄        |
+|     [ - ]  2  [ + ]      (₩6,400) |   |   Remaining:       ₩2,500         |   |         █ ▄▄▄ █ ▄▀ █ ▄▄▄ █        |
+|  2. Fresh Apples (1kg)    ₩8,900  |   |                                   |   |         █ ███ █ ▀▄ █ ███ █        |
+|     [ - ]  1  [ + ]      (₩8,900) |   |   💡 Smart Recommendations:       |   |         ▀▀▀▀▀▀▀ ▀  ▀▀▀▀▀▀▀        |
+|  3. Chicken Breast       ₩12,200  |   |   • Switch to Store Brand Milk    |   |      [SHA-256 Verified Signature]  |
+|     [ - ]  1  [ + ]     (₩12,200) |   |     Save ₩1,100 (-17%)            |   +-----------------------------------+
++-----------------------------------+   |   • Apply 10% Fruit Coupon        |   |  Subtotal:                ₩45,000 |
+|  Weight Check: 3.42 kg (OK ✓)     |   |     Save ₩890                     |   |  Discounts Applied:       -₩2,500 |
+|  Subtotal:               ₩47,500  |   |                                   |   |  Total Paid (KakaoPay):   ₩42,500 |
+|  [    Proceed to Checkout  ->  ]  |   |   [ Apply Savings ]  [ Continue ]  |   |                                   |
++-----------------------------------+   +-----------------------------------+   |  [ Download PDF ]  [ Done ]       |
+                                                                                +-----------------------------------+
+```
