@@ -83,7 +83,7 @@ export class Home {
       {
         id: '2',
         name: 'broccoli',
-        category: GroceryCategory.VEGITABLES,
+        category: GroceryCategory.SNACKS,
         quantity: 1,
         unit: 'bunch',
         createdAt: new Date(),
