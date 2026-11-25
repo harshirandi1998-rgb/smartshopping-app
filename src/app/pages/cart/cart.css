@@ -1,0 +1,298 @@
+
+:host {
+  display: block;
+  min-height: 100vh;
+  background: #f8faf8;
+  font-family: Arial, sans-serif;
+  color: #26352b;
+}
+
+.navbar {
+  height: 75px;
+  padding: 0 7%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 800;
+  color: #239447;
+  text-decoration: none;
+}
+
+.navbar nav {
+  display: flex;
+  gap: 30px;
+}
+
+.navbar nav a {
+  color: #34443a;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.account {
+  background: #239447;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.cart-container {
+  padding: 50px 7%;
+}
+
+.page-heading {
+  margin-bottom: 35px;
+}
+
+.page-heading span {
+  color: #239447;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.page-heading h1 {
+  font-size: 34px;
+  margin: 12px 0;
+}
+
+.page-heading p {
+  color: #89938c;
+}
+
+.cart-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 30px;
+  align-items: start;
+}
+
+.cart-items,
+.summary-card {
+  background: white;
+  border: 1px solid #e9eee9;
+  border-radius: 12px;
+  padding: 25px;
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.cart-header h2,
+.summary-card h2 {
+  font-size: 20px;
+}
+
+.cart-header a {
+  color: #239447;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-item img {
+  width: 85px;
+  height: 85px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.item-details {
+  flex: 1;
+}
+
+.item-details span {
+  color: #239447;
+  font-size: 12px;
+}
+
+.item-details h3 {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.item-details p {
+  font-weight: bold;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.quantity-control button {
+  width: 30px;
+  height: 30px;
+  background: #eaf6ec;
+  color: #239447;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.item-total {
+  min-width: 85px;
+  text-align: right;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: #e45c5c;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.summary-card {
+  position: sticky;
+  top: 20px;
+}
+
+.summary-card h2 {
+  margin-bottom: 25px;
+}
+
+.summary-row,
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.summary-row span {
+  color: #89938c;
+}
+
+.summary-card hr {
+  border: none;
+  border-top: 1px solid #eee;
+}
+
+.total-row strong {
+  color: #239447;
+  font-size: 21px;
+}
+
+.checkout-btn {
+  display: block;
+  background: #239447;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 25px;
+  font-weight: bold;
+}
+
+.checkout-btn.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.secure-text {
+  text-align: center;
+  color: #89938c;
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+.empty-cart {
+  text-align: center;
+  padding: 45px 15px;
+}
+
+.empty-cart div {
+  font-size: 55px;
+}
+
+.empty-cart p {
+  color: #89938c;
+}
+
+.empty-cart a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 22px;
+  background: #239447;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.footer {
+  background: #26352b;
+  color: white;
+  text-align: center;
+  padding: 35px;
+}
+
+.footer h2 {
+  color: #78d58c;
+}
+
+.footer p {
+  margin-top: 12px;
+  color: #d0d8d1;
+}
+
+@media (max-width: 900px) {
+  .cart-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-card {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    padding: 15px 5%;
+    height: auto;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .navbar nav {
+    gap: 12px;
+    font-size: 13px;
+  }
+
+  .cart-container {
+    padding: 30px 5%;
+  }
+
+  .cart-item {
+    flex-wrap: wrap;
+  }
+
+  .item-details {
+    min-width: 130px;
+  }
+
+  .item-total {
+    text-align: left;
+  }
+}

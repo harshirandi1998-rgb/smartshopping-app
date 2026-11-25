@@ -1,0 +1,201 @@
+
+<header class="navbar">
+  <a routerLink="/home" class="logo">🛒 FreshCart</a>
+
+  <nav>
+    <a routerLink="/home">Home</a>
+    <a routerLink="/products">Products</a>
+    <a routerLink="/cart">Cart</a>
+  </nav>
+
+  <a routerLink="/profile" class="account">My Account</a>
+</header>
+
+<main class="checkout-container">
+
+  <div class="page-heading">
+    <span>ALMOST THERE!</span>
+    <h1>Checkout</h1>
+    <p>Complete your delivery information and place your order.</p>
+  </div>
+
+  <div class="checkout-layout">
+
+    <!-- Customer Information -->
+    <section class="checkout-form">
+
+      <div class="form-card">
+        <h2>📍 Delivery Information</h2>
+        <p>Where should we deliver your groceries?</p>
+
+        <form #checkoutForm="ngForm"
+          (ngSubmit)="placeOrder()">
+
+          <div class="form-group">
+            <label>Full Name</label>
+            <input
+              type="text"
+              name="customerName"
+              [(ngModel)]="customerName"
+              placeholder="Enter your full name"
+              required>
+          </div>
+
+          <div class="form-group">
+            <label>Email Address</label>
+            <input
+              type="email"
+              name="email"
+              [(ngModel)]="email"
+              placeholder="Enter your email"
+              required>
+          </div>
+
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input
+              type="tel"
+              name="phone"
+              [(ngModel)]="phone"
+              placeholder="Enter your phone number"
+              required>
+          </div>
+
+          <div class="form-group">
+            <label>Street Address</label>
+            <input
+              type="text"
+              name="address"
+              [(ngModel)]="address"
+              placeholder="Apartment, street and building"
+              required>
+          </div>
+
+          <div class="form-row">
+
+            <div class="form-group">
+              <label>City</label>
+              <input
+                type="text"
+                name="city"
+                [(ngModel)]="city"
+                placeholder="Enter city"
+                required>
+            </div>
+
+            <div class="form-group">
+              <label>Postal Code</label>
+              <input
+                type="text"
+                name="postalCode"
+                [(ngModel)]="postalCode"
+                placeholder="Postal code"
+                required>
+            </div>
+
+          </div>
+
+          <!-- Payment -->
+          <div class="payment-section">
+            <h2>💳 Payment Method</h2>
+            <p>Choose your preferred payment method.</p>
+
+            <label class="payment-option">
+              <input
+                type="radio"
+                name="paymentMethod"
+                value="card"
+                [(ngModel)]="paymentMethod">
+              <span>💳 Credit / Debit Card</span>
+            </label>
+
+            <label class="payment-option">
+              <input
+                type="radio"
+                name="paymentMethod"
+                value="bank"
+                [(ngModel)]="paymentMethod">
+              <span>🏦 Bank Transfer</span>
+            </label>
+
+            <label class="payment-option">
+              <input
+                type="radio"
+                name="paymentMethod"
+                value="cash"
+                [(ngModel)]="paymentMethod">
+              <span>💵 Cash on Delivery</span>
+            </label>
+          </div>
+
+          <button type="submit" class="place-order-btn">
+            Place Order →
+          </button>
+
+        </form>
+      </div>
+
+    </section>
+
+    <!-- Order Summary -->
+    <aside class="summary-card">
+
+      <h2>Order Summary</h2>
+
+      <div class="summary-product">
+        <div>
+          <h3>Fresh Red Apples</h3>
+          <span>Quantity: 2</span>
+        </div>
+        <strong>₩9,000</strong>
+      </div>
+
+      <div class="summary-product">
+        <div>
+          <h3>Fresh Broccoli</h3>
+          <span>Quantity: 1</span>
+        </div>
+        <strong>₩3,200</strong>
+      </div>
+
+      <div class="summary-product">
+        <div>
+          <h3>Fresh Milk</h3>
+          <span>Quantity: 1</span>
+        </div>
+        <strong>₩2,800</strong>
+      </div>
+
+      <hr>
+
+      <div class="summary-row">
+        <span>Subtotal</span>
+        <strong>₩{{ subtotal | number:'1.0-0' }}</strong>
+      </div>
+
+      <div class="summary-row">
+        <span>Delivery Fee</span>
+        <strong>₩{{ deliveryFee | number:'1.0-0' }}</strong>
+      </div>
+
+      <hr>
+
+      <div class="total-row">
+        <span>Total Amount</span>
+        <strong>₩{{ total | number:'1.0-0' }}</strong>
+      </div>
+
+      <div class="secure-message">
+        🔒 Your order information is protected.
+      </div>
+
+    </aside>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <h2>🛒 FreshCart</h2>
+  <p>Your everyday grocery shopping partner.</p>
+  <p>© 2026 FreshCart. All rights reserved.</p>
+</footer>

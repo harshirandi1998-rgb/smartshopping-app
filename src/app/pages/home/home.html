@@ -1,0 +1,122 @@
+
+<!-- Navigation Bar -->
+<header class="navbar">
+  <a routerLink="/" class="logo">
+    <span>🛒</span> Smart Shopping App
+  </a>
+
+  <nav class="nav-links">
+    <a routerLink="/">Home</a>
+    <a routerLink="/products">Products</a>
+    <a routerLink="/orders">My Orders</a>
+  </nav>
+
+  <div class="nav-actions">
+    <a routerLink="/cart" class="cart-link">🛒 Cart</a>
+    <a routerLink="/profile" class="profile-link">My Account</a>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <span class="tagline">FRESH FOOD, HAPPY LIFE</span>
+
+    <h1>
+      Fresh Groceries<br>
+      Delivered to Your <span>Doorstep</span>
+    </h1>
+
+    <p>
+      Shop your daily essentials with FreshCart.
+      Enjoy fresh products, great prices and convenient delivery.
+    </p>
+
+    <a routerLink="/products" class="shop-btn">
+      Shop Now →
+    </a>
+  </div>
+
+  <div class="hero-image">
+    <img
+      src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=900"
+      alt="Fresh vegetables and groceries">
+  </div>
+</section>
+
+<!-- Categories -->
+<section class="section">
+  <div class="section-heading">
+    <div>
+      <span class="small-title">SHOP BY CATEGORY</span>
+      <h2>Popular Categories</h2>
+    </div>
+
+    <a routerLink="/products" class="view-all">View All →</a>
+  </div>
+
+  <div class="category-grid">
+    <div class="category-card" *ngFor="let category of categories">
+      <div class="category-icon">{{ category.icon }}</div>
+      <h3>{{ category.name }}</h3>
+    </div>
+  </div>
+</section>
+
+<!-- Products -->
+<section class="section products-section">
+  <div class="section-heading">
+    <div>
+      <span class="small-title">OUR SELECTION</span>
+      <h2>Featured Products</h2>
+    </div>
+
+    <a routerLink="/products" class="view-all">View All →</a>
+  </div>
+
+  <div class="product-grid">
+    <div class="product-card" *ngFor="let product of products">
+
+      <div class="product-image">
+        <img [src]="product.image" [alt]="product.name">
+        <span class="rating">⭐ {{ product.rating }}</span>
+      </div>
+
+      <div class="product-info">
+        <span class="product-category">{{ product.category }}</span>
+        <h3>{{ product.name }}</h3>
+        <p class="unit">{{ product.unit }}</p>
+
+        <div class="product-bottom">
+          <strong>{{ product.price | currency:'KRW':'symbol':'1.0-0':'ko-KR' }}</strong>
+
+          <button (click)="addToCart(product)">
+            + Add
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Promotional Banner -->
+<section class="offer-banner">
+  <div>
+    <span>FRESH DEALS FOR YOU</span>
+    <h2>Make Your Shopping Easier!</h2>
+    <p>Discover fresh products and great deals every day.</p>
+    <a routerLink="/products">Explore Products →</a>
+  </div>
+
+  <div class="offer-emoji">🥬 🍎 🥕</div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <h2>🛒 Smart Shopping App</h2>
+  <p>Your everyday grocery shopping partner.</p>
+  <p class="copyright">
+    © 2026 Smart Shopping. All rights reserved.
+  </p>
+</footer>

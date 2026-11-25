@@ -1,0 +1,109 @@
+
+<header class="navbar">
+  <a routerLink="/home" class="logo">🛒 FreshCart</a>
+
+  <nav>
+    <a routerLink="/home">Home</a>
+    <a routerLink="/products">Products</a>
+    <a routerLink="/orders">My Orders</a>
+  </nav>
+
+  <a routerLink="/profile" class="account">My Account</a>
+</header>
+
+<main class="cart-container">
+
+  <div class="page-heading">
+    <span>YOUR SHOPPING</span>
+    <h1>Shopping Cart</h1>
+    <p>Review your grocery items before checkout.</p>
+  </div>
+
+  <div class="cart-layout">
+
+    <section class="cart-items">
+
+      <div class="cart-header">
+        <h2>Cart Items ({{ cartItems.length }})</h2>
+        <a routerLink="/products">Continue Shopping</a>
+      </div>
+
+      <div class="cart-item" *ngFor="let item of cartItems">
+
+        <img [src]="item.image" [alt]="item.name">
+
+        <div class="item-details">
+          <span>{{ item.category }}</span>
+          <h3>{{ item.name }}</h3>
+          <p>₩{{ item.price | number:'1.0-0' }}</p>
+        </div>
+
+        <div class="quantity-control">
+          <button (click)="decreaseQuantity(item)">−</button>
+          <strong>{{ item.quantity }}</strong>
+          <button (click)="increaseQuantity(item)">+</button>
+        </div>
+
+        <strong class="item-total">
+          ₩{{ item.price * item.quantity | number:'1.0-0' }}
+        </strong>
+
+        <button class="remove-btn"
+          (click)="removeItem(item.id)">
+          ✕
+        </button>
+
+      </div>
+
+      <div class="empty-cart" *ngIf="cartItems.length === 0">
+        <div>🛒</div>
+        <h2>Your cart is empty</h2>
+        <p>Discover fresh groceries and start shopping.</p>
+        <a routerLink="/products">Shop Now</a>
+      </div>
+
+    </section>
+
+    <aside class="summary-card">
+
+      <h2>Order Summary</h2>
+
+      <div class="summary-row">
+        <span>Subtotal</span>
+        <strong>₩{{ subtotal | number:'1.0-0' }}</strong>
+      </div>
+
+      <div class="summary-row">
+        <span>Delivery Fee</span>
+        <strong>₩{{ deliveryFee | number:'1.0-0' }}</strong>
+      </div>
+
+      <hr>
+
+      <div class="total-row">
+        <span>Total</span>
+        <strong>₩{{ total | number:'1.0-0' }}</strong>
+      </div>
+
+      <a
+        routerLink="/checkout"
+        class="checkout-btn"
+        [class.disabled]="cartItems.length === 0"
+        [attr.aria-disabled]="cartItems.length === 0"
+        (click)="cartItems.length === 0 ? $event.preventDefault() : null">
+        Proceed to Checkout →
+      </a>
+
+      <p class="secure-text">🔒 Secure shopping experience</p>
+
+    </aside>
+
+  </div>
+
+</main>
+
+<footer class="footer">
+  <h2>🛒 FreshCart</h2>
+  <p>Your everyday grocery shopping partner.</p>
+  <p>© 2026 FreshCart. All rights reserved.</p>
+</footer>
