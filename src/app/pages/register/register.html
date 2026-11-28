@@ -1,1 +1,149 @@
-<p>register works!</p>
+
+<div class="register-page">
+
+  <!-- Left Section -->
+  <div class="register-banner">
+
+    <a routerLink="/home" class="brand">
+      🛒 Smart Shopping App
+    </a>
+
+    <div class="banner-content">
+      <h1>Fresh groceries,<br>happy living!</h1>
+
+      <p>
+        Join Smart Shopping App and enjoy convenient grocery shopping
+        with fresh products delivered to your doorstep.
+      </p>
+
+      <div class="benefits">
+        <div>✓ Fresh and quality products</div>
+        <div>✓ Easy online shopping</div>
+        <div>✓ Convenient grocery delivery</div>
+      </div>
+    </div>
+
+    <div class="banner-footer">
+      Your everyday grocery shopping partner.
+    </div>
+
+  </div>
+
+  <!-- Right Section -->
+  <div class="register-content">
+
+    <div class="register-card">
+
+      <div class="mobile-brand">
+        🛒 Smart Shopping App
+      </div>
+
+      <div class="form-heading">
+        <span>CREATE YOUR ACCOUNT</span>
+        <h2>Join Smart Shopping App</h2>
+        <p>Enter your details to create a new account.</p>
+      </div>
+
+      <form (ngSubmit)="register()" #registerForm="ngForm">
+
+        <!-- Full Name -->
+        <div class="form-group">
+          <label>Full Name</label>
+
+          <input
+            type="text"
+            name="fullName"
+            [(ngModel)]="fullName"
+            placeholder="Enter your full name"
+            required>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label>Email Address</label>
+
+          <input
+            type="email"
+            name="email"
+            [(ngModel)]="email"
+            placeholder="Enter your email"
+            required>
+        </div>
+
+        <!-- Phone -->
+        <div class="form-group">
+          <label>Phone Number</label>
+
+          <input
+            type="tel"
+            name="phone"
+            [(ngModel)]="phone"
+            placeholder="Enter your phone number"
+            required>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label>Password</label>
+
+          <div class="password-input">
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              name="password"
+              [(ngModel)]="password"
+              placeholder="Create a password"
+              required>
+
+            <button
+              type="button"
+              (click)="showPassword = !showPassword">
+              {{ showPassword ? 'Hide' : 'Show' }}
+            </button>
+          </div>
+
+          <small>Use at least 6 characters.</small>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="form-group">
+          <label>Confirm Password</label>
+
+          <div class="password-input">
+            <input
+              [type]="showConfirmPassword ? 'text' : 'password'"
+              name="confirmPassword"
+              [(ngModel)]="confirmPassword"
+              placeholder="Confirm your password"
+              required>
+
+            <button
+              type="button"
+              (click)="showConfirmPassword = !showConfirmPassword">
+              {{ showConfirmPassword ? 'Hide' : 'Show' }}
+            </button>
+          </div>
+        </div>
+
+        <!-- Register Button -->
+        <button type="submit" class="register-btn">
+          Create Account →
+        </button>
+
+      </form>
+
+      <div class="login-link">
+        Already have an account?
+        <a routerLink="/login">Login</a>
+      </div>
+
+      <div class="terms">
+        By creating an account, you agree to use Smart Shopping App
+        responsibly.
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+

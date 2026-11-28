@@ -1,1 +1,173 @@
-<p>products works!</p>
+
+<header class="navbar">
+
+  <a routerLink="/home" class="logo">🛒 Smart Shopping App</a>
+
+  <nav>
+    <a routerLink="/home">Home</a>
+    <a routerLink="/products" class="active">Products</a>
+    <a routerLink="/cart">Cart</a>
+    <a routerLink="/orders">My Orders</a>
+  </nav>
+
+  <a routerLink="/profile" class="account">My Account</a>
+
+</header>
+
+<main class="products-container">
+
+  <!-- Page Heading -->
+  <section class="page-heading">
+    <span>FRESHNESS AT YOUR DOORSTEP</span>
+    <h1>Our Products</h1>
+    <p>Discover fresh groceries and everyday essentials.</p>
+  </section>
+
+  <!-- Search -->
+  <section class="search-section">
+
+    <div class="search-box">
+      <span>🔍</span>
+
+      <input
+        type="text"
+        [(ngModel)]="searchText"
+        placeholder="Search for groceries...">
+    </div>
+
+  </section>
+
+  <!-- Categories -->
+  <section class="category-section">
+
+    <h2>Shop by Category</h2>
+
+    <div class="category-list">
+
+      <button
+        *ngFor="let category of categories"
+        type="button"
+        [class.selected]="selectedCategory === category"
+        (click)="selectCategory(category)">
+        {{ category }}
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- Product Heading -->
+  <section class="product-section">
+
+    <div class="section-heading">
+      <div>
+        <h2>Available Products</h2>
+        <p>{{ filteredProducts.length }} products found</p>
+      </div>
+    </div>
+
+    <!-- Product Cards -->
+    <div class="product-grid">
+
+      <div class="product-card"
+        *ngFor="let product of filteredProducts">
+
+        <div class="product-image">
+
+          <img
+            [src]="product.image"
+            [alt]="product.name">
+
+          <span class="offer-badge">Special Offer</span>
+
+        </div>
+
+        <div class="product-info">
+
+          <span class="product-category">
+            {{ product.category }}
+          </span>
+
+          <h3>{{ product.name }}</h3>
+
+          <div class="rating">
+            <span>★</span>
+            {{ product.rating }}
+          </div>
+
+          <p class="description">
+            {{ product.description }}
+          </p>
+
+          <div class="price-section">
+
+            <strong>
+              ₩{{ product.price | number:'1.0-0' }}
+            </strong>
+
+            <del>
+              ₩{{ product.oldPrice | number:'1.0-0' }}
+            </del>
+
+          </div>
+
+          <div class="product-buttons">
+
+            <a
+              routerLink="/product-details"
+              class="details-btn">
+              View Details
+            </a>
+
+            <button
+              type="button"
+              class="add-btn"
+              (click)="addToCart(product.name)">
+              + Add
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- No Products -->
+    <div
+      class="no-products"
+      *ngIf="filteredProducts.length === 0">
+
+      <div>🔍</div>
+      <h2>No Products Found</h2>
+      <p>Try another product name or category.</p>
+
+      <button
+        type="button"
+        (click)="searchText = ''; selectCategory('All')">
+        Show All Products
+      </button>
+
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="footer">
+
+  <h2>🛒 Smart Shopping App</h2>
+
+  <p>Your everyday grocery shopping partner.</p>
+
+  <div class="footer-links">
+    <a routerLink="/home">Home</a>
+    <a routerLink="/products">Products</a>
+    <a routerLink="/cart">Cart</a>
+    <a routerLink="/orders">Orders</a>
+  </div>
+
+  <p>© 2026 Smart Shopping App. All rights reserved.</p>
+
+</footer>

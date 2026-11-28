@@ -1,1 +1,140 @@
-<p>orders works!</p>
+
+<header class="navbar">
+
+  <a routerLink="/home" class="logo">🛒 Smart Shopping App</a>
+
+  <nav>
+    <a routerLink="/home">Home</a>
+    <a routerLink="/products">Products</a>
+    <a routerLink="/cart">Cart</a>
+    <a routerLink="/orders" class="active">My Orders</a>
+  </nav>
+
+  <a routerLink="/profile" class="account">My Account</a>
+
+</header>
+
+<main class="orders-container">
+
+  <div class="page-heading">
+    <span>YOUR SHOPPING HISTORY</span>
+    <h1>My Orders</h1>
+    <p>View and track all your grocery orders in one place.</p>
+  </div>
+
+  <!-- Order Statistics -->
+  <div class="stats-container">
+
+    <div class="stat-card">
+      <span class="stat-icon">📦</span>
+      <div>
+        <h2>{{ orders.length }}</h2>
+        <p>Total Orders</p>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-icon">✅</span>
+      <div>
+        <h2>{{ getDeliveredCount() }}</h2>
+        <p>Delivered Orders</p>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-icon">🚚</span>
+      <div>
+        <h2>{{ getActiveCount() }}</h2>
+        <p>Active Orders</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Orders List -->
+  <section class="orders-section">
+
+    <h2>Order History</h2>
+
+    <div *ngIf="orders.length > 0; else emptyOrders">
+
+      <div class="order-card" *ngFor="let order of orders">
+
+        <div class="order-header">
+
+          <div>
+            <span class="order-label">ORDER ID</span>
+            <h3>#{{ order.id }}</h3>
+          </div>
+
+          <span class="status"
+            [ngClass]="getStatusClass(order.status)">
+            {{ order.status }}
+          </span>
+
+        </div>
+
+        <div class="order-details">
+
+          <div class="detail-item">
+            <span>Order Date</span>
+            <strong>{{ order.date }}</strong>
+          </div>
+
+          <div class="detail-item">
+            <span>Items</span>
+            <strong>{{ order.items }} Products</strong>
+          </div>
+
+          <div class="detail-item">
+            <span>Payment</span>
+            <strong>{{ order.payment }}</strong>
+          </div>
+
+          <div class="detail-item">
+            <span>Total Amount</span>
+            <strong class="price">
+              ₩{{ order.total | number:'1.0-0' }}
+            </strong>
+          </div>
+
+        </div>
+
+        <div class="order-footer">
+
+          <span>
+            <span class="delivery-icon">🛒</span>
+            FreshCart Grocery Order
+          </span>
+
+          <button
+            class="details-btn"
+            type="button"
+            (click)="viewOrder(order.id)">
+            View Details →
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <ng-template #emptyOrders>
+      <div class="empty-orders">
+        <div>📦</div>
+        <h2>No Orders Yet</h2>
+        <p>Your grocery orders will appear here.</p>
+        <a routerLink="/products">Start Shopping</a>
+      </div>
+    </ng-template>
+
+  </section>
+
+</main>
+
+<footer class="footer">
+  <h2>🛒 Smart Shopping App</h2>
+  <p>Your everyday grocery shopping partner.</p>
+  <p>© 2026 Smart Shopping App. All rights reserved.</p>
+</footer>

@@ -6,6 +6,7 @@ import {
 } from '@angular/ssr/node';
 import express from 'express';
 import { join } from 'node:path';
+import mongoose, { ConnectOptions } from 'mongoose'
 
 const browserDistFolder = join(import.meta.dirname, '../browser');
 
@@ -61,6 +62,25 @@ if (isMainModule(import.meta.url) || process.env['pm_id']) {
     console.log(`Node Express server listening on http://localhost:${port}`);
   });
 }
+
+
+
+
+
+
+
+
+
+mongoose.connect(process.env['MONGODB_URL'] as string, {})
+.then(data => {
+  console.log('Mongo db successfully connected')
+  const PORT = process.env['PORT'] || 4200
+  console.log(`The project is running on http://localhost:${PORT}`)
+
+  
+})
+.catch(err =>  console.log('something went wrong'))
+
 
 /**
  * Request handler used by the Angular CLI (for dev-server and during build) or Firebase Cloud Functions.

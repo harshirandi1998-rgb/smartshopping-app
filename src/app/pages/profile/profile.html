@@ -1,1 +1,228 @@
-<p>profile works!</p>
+
+<header class="navbar">
+
+  <a routerLink="/home" class="logo">🛒 Smart Shopping App</a>
+
+  <nav>
+    <a routerLink="/home">Home</a>
+    <a routerLink="/products">Products</a>
+    <a routerLink="/cart">Cart</a>
+    <a routerLink="/orders">My Orders</a>
+  </nav>
+
+  <a routerLink="/profile" class="account active">
+    My Account
+  </a>
+
+</header>
+
+<main class="profile-container">
+
+  <div class="page-heading">
+    <span>YOUR ACCOUNT</span>
+    <h1>My Profile</h1>
+    <p>Manage your personal information and account settings.</p>
+  </div>
+
+  <div class="profile-layout">
+
+    <!-- Sidebar -->
+    <aside class="profile-sidebar">
+
+      <div class="user-avatar">👤</div>
+
+      <h2>{{ profile.fullName }}</h2>
+      <p>{{ profile.email }}</p>
+
+      <div class="sidebar-links">
+        <a routerLink="/profile" class="selected">
+          👤 Personal Information
+        </a>
+
+        <a routerLink="/orders">
+          📦 My Orders
+        </a>
+
+        <a routerLink="/cart">
+          🛒 My Cart
+        </a>
+
+        <button type="button" (click)="logout()">
+          🚪 Logout
+        </button>
+      </div>
+
+    </aside>
+
+    <!-- Main Profile -->
+    <section class="profile-content">
+
+      <!-- Personal Information -->
+      <div class="profile-card">
+
+        <div class="card-heading">
+          <div>
+            <h2>Personal Information</h2>
+            <p>Update your personal details.</p>
+          </div>
+
+          <button
+            *ngIf="!isEditing"
+            type="button"
+            class="edit-btn"
+            (click)="editProfile()">
+            ✏️ Edit Profile
+          </button>
+        </div>
+
+        <form #profileForm="ngForm"
+          (ngSubmit)="saveProfile()">
+
+          <div class="form-grid">
+
+            <div class="form-group">
+              <label>Full Name</label>
+              <input
+                type="text"
+                name="fullName"
+                [(ngModel)]="profile.fullName"
+                [readonly]="!isEditing"
+                required>
+            </div>
+
+            <div class="form-group">
+              <label>Email Address</label>
+              <input
+                type="email"
+                name="email"
+                [(ngModel)]="profile.email"
+                [readonly]="!isEditing"
+                required>
+            </div>
+
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input
+                type="tel"
+                name="phone"
+                [(ngModel)]="profile.phone"
+                [readonly]="!isEditing"
+                placeholder="Enter phone number">
+            </div>
+
+            <div class="form-group">
+              <label>City</label>
+              <input
+                type="text"
+                name="city"
+                [(ngModel)]="profile.city"
+                [readonly]="!isEditing"
+                placeholder="Enter city">
+            </div>
+
+            <div class="form-group full-width">
+              <label>Delivery Address</label>
+              <textarea
+                name="address"
+                [(ngModel)]="profile.address"
+                [readonly]="!isEditing"
+                placeholder="Enter your delivery address">
+              </textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Postal Code</label>
+              <input
+                type="text"
+                name="postalCode"
+                [(ngModel)]="profile.postalCode"
+                [readonly]="!isEditing"
+                placeholder="Enter postal code">
+            </div>
+
+          </div>
+
+          <div class="form-actions" *ngIf="isEditing">
+
+            <button
+              type="button"
+              class="cancel-btn"
+              (click)="cancelEdit()">
+              Cancel
+            </button>
+
+            <button
+              type="submit"
+              class="save-btn">
+              Save Profile
+            </button>
+
+          </div>
+
+        </form>
+
+      </div>
+
+      <!-- Change Password -->
+      <div class="profile-card password-card">
+
+        <div class="card-heading">
+          <div>
+            <h2>Change Password</h2>
+            <p>Update your account password.</p>
+          </div>
+        </div>
+
+        <form (ngSubmit)="changePassword()">
+
+          <div class="form-group">
+            <label>Current Password</label>
+            <input
+              type="password"
+              name="currentPassword"
+              [(ngModel)]="currentPassword"
+              placeholder="Enter current password">
+          </div>
+
+          <div class="form-group">
+            <label>New Password</label>
+            <input
+              type="password"
+              name="newPassword"
+              [(ngModel)]="newPassword"
+              placeholder="Enter new password">
+          </div>
+
+          <div class="form-group">
+            <label>Confirm New Password</label>
+            <input
+              type="password"
+              name="confirmPassword"
+              [(ngModel)]="confirmPassword"
+              placeholder="Confirm new password">
+          </div>
+
+          <button type="submit" class="save-btn">
+            Update Password
+          </button>
+
+        </form>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</main>
+
+<footer class="footer">
+
+  <h2>🛒 Smart Shopping App</h2>
+
+  <p>Your everyday grocery shopping partner.</p>
+
+  <p>© 2026 Smart Shopping App. All rights reserved.</p>
+
+</footer>
+

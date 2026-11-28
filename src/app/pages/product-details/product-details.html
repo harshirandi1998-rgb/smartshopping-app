@@ -1,1 +1,129 @@
-<p>product-details works!</p>
+
+<header class="navbar">
+
+  <a routerLink="/home" class="logo">🛒 Smart Shopping App</a>
+
+  <nav>
+    <a routerLink="/home">Home</a>
+    <a routerLink="/products">Products</a>
+    <a routerLink="/cart">Cart</a>
+    <a routerLink="/orders">My Orders</a>
+  </nav>
+
+  <a routerLink="/profile" class="account">My Account</a>
+
+</header>
+
+<main class="details-container">
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <a routerLink="/home">Home</a>
+    <span>/</span>
+    <a routerLink="/products">Products</a>
+    <span>/</span>
+    <span>Product Details</span>
+  </div>
+
+  <!-- Product Details -->
+  <section class="product-details">
+
+    <!-- Product Image -->
+    <div class="product-image">
+      <span class="discount-badge">Special Offer</span>
+
+      <img
+        [src]="product.image"
+        [alt]="product.name">
+    </div>
+
+    <!-- Product Information -->
+    <div class="product-info">
+
+      <span class="category">{{ product.category }}</span>
+
+      <h1>{{ product.name }}</h1>
+
+      <div class="rating">
+        <span>★★★★★</span>
+        <strong>{{ product.rating }}</strong>
+        <small>({{ product.reviews }} reviews)</small>
+      </div>
+
+      <div class="price-section">
+        <h2>₩{{ product.price | number:'1.0-0' }}</h2>
+        <del>₩{{ product.oldPrice | number:'1.0-0' }}</del>
+      </div>
+
+      <p class="stock">
+        <span>●</span> {{ product.stock }}
+      </p>
+
+      <div class="description">
+        <h3>Product Description</h3>
+        <p>{{ product.description }}</p>
+      </div>
+
+      <div class="quantity-section">
+
+        <label>Quantity</label>
+
+        <div class="quantity-control">
+
+          <button
+            type="button"
+            (click)="decreaseQuantity()">
+            −
+          </button>
+
+          <span>{{ quantity }}</span>
+
+          <button
+            type="button"
+            (click)="increaseQuantity()">
+            +
+          </button>
+
+        </div>
+
+      </div>
+
+      <div class="total-price">
+        <span>Total Price:</span>
+        <strong>
+          ₩{{ totalPrice | number:'1.0-0' }}
+        </strong>
+      </div>
+
+      <div class="action-buttons">
+
+        <button
+          class="add-cart-btn"
+          type="button"
+          (click)="addToCart()">
+          🛒 Add to Cart
+        </button>
+
+        <a routerLink="/products" class="back-btn">
+          Continue Shopping
+        </a>
+
+      </div>
+
+      <div class="delivery-info">
+        <p>🚚 Fresh grocery delivery</p>
+        <p>🌱 Quality and freshness guaranteed</p>
+        <p>🔒 Safe shopping experience</p>
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="footer">
+  <h2>🛒 Smart Shopping App</h2>
+  <p>Your everyday grocery shopping partner.</p>
+  <p>© 2026 Smart Shopping App. All rights reserved.</p>
+</footer>

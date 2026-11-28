@@ -20,7 +20,9 @@
     "@angular/platform-server": "^22.3.0",
     "@angular/router": "^22.3.0",
     "@angular/ssr": "^22.3.0",
+    "dotenv": "^18.0.10",
     "express": "^5.1.0",
+    "mongoose": "^9.13.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
@@ -29,7 +31,7 @@
     "@angular/cli": "^22.3.0",
     "@angular/compiler-cli": "^22.3.0",
     "@types/express": "^5.0.1",
-    "@types/node": "^22.12.0",
+    "@types/node": "^22.20.5",
     "jsdom": "^31.0.0",
     "prettier": "^3.8.1",
     "typescript": "~6.0.2",
